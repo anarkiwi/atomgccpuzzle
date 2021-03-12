@@ -41,6 +41,7 @@ RUN git clone https://github.com/srsLTE/srsLTE.git -b release_20_10_1
 RUN mkdir -p /root/srsLTE/build
 RUN mkdir /config
 WORKDIR /root/srsLTE/build
-RUN cmake ../ && make -j `nproc` && make install && ldconfig
+RUN cmake ../
+RUN make -j srsenb
 
 ENTRYPOINT ["/bin/sh"]
