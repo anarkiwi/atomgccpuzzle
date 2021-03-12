@@ -42,6 +42,6 @@ RUN mkdir -p /root/srsLTE/build
 RUN mkdir /config
 WORKDIR /root/srsLTE/build
 RUN cmake ../
-RUN make -j srsenb
+RUN make -j srsenb_mac
 
 ENTRYPOINT ["/bin/sh"]
