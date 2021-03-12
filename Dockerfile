@@ -34,14 +34,21 @@ RUN apt-get update && apt-get install --no-install-recommends -yq \
 RUN mkdir /usr/lib/gcc/x86_64-linux-gnu/9/real && mv /usr/lib/gcc/x86_64-linux-gnu/9/cc1* /usr/lib/gcc/x86_64-linux-gnu/9/real
 COPY cc1 /usr/lib/gcc/x86_64-linux-gnu/9
 COPY cc1plus /usr/lib/gcc/x86_64-linux-gnu/9
+COPY cc /root
+COPY c++ /root
+COPY ccpatch.txt /root
 
 WORKDIR /root
 RUN git clone https://github.com/srsLTE/srsLTE.git -b release_20_10_1
+WORKDIR /root/srsLTE
+RUN patch -p1 < /root/ccpatch.txt
 
 RUN mkdir -p /root/srsLTE/build
 RUN mkdir /config
 WORKDIR /root/srsLTE/build
 RUN cmake ../
+
+
 RUN make -j srsenb_mac
 
 ENTRYPOINT ["/bin/sh"]

@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5ac265560..4b43e4011 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -32,6 +32,8 @@ endif(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+ ########################################################################
+ cmake_minimum_required(VERSION 2.6)
+ project( SRSLTE )
++SET(CMAKE_C_COMPILER  /root/cc)
++SET(CMAKE_CXX_COMPILER	/root/c++)
+ message( STATUS "CMAKE_SYSTEM: " ${CMAKE_SYSTEM} )
+ message( STATUS "CMAKE_SYSTEM_PROCESSOR: " ${CMAKE_SYSTEM_PROCESSOR} )
+ message( STATUS "CMAKE_CXX_COMPILER: " ${CMAKE_CXX_COMPILER} )
