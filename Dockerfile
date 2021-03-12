@@ -31,9 +31,6 @@ RUN apt-get update && apt-get install --no-install-recommends -yq \
      lksctp-tools \
      qemu-user
 
-RUN mkdir /usr/lib/gcc/x86_64-linux-gnu/9/real && mv /usr/lib/gcc/x86_64-linux-gnu/9/cc1* /usr/lib/gcc/x86_64-linux-gnu/9/real
-COPY cc1 /usr/lib/gcc/x86_64-linux-gnu/9
-COPY cc1plus /usr/lib/gcc/x86_64-linux-gnu/9
 COPY cc /root
 COPY c++ /root
 COPY ccpatch.txt /root
